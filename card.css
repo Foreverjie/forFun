@@ -26,7 +26,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.card-content {
+.card-main-content {
     padding-top: 27px;
     margin-left: 88px;
     width: 534px;
@@ -34,6 +34,7 @@ body {
 
 .card-title {
     display: inline-block;
+    font-size: 18px;
 }
 
 .title {
@@ -49,4 +50,25 @@ body {
     padding-top: 4px;
     font-size: 12px;
     color: #99a2aa;
+}
+
+.card-content {
+    display: block;
+    font-size: 15px;
+}
+
+.card-button-bar {
+    line-height: 44px;
+    color: #99a2aa;
+}
+
+.card-button {
+    display: inline-block;
+    width: 92px;
+    height: 100%;
+    fill: #99a2aa;
+}
+
+.button-icon {
+    height: 20px;
 }
