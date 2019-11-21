@@ -58,7 +58,8 @@ body {
 }
 
 .card-button-bar {
-    line-height: 44px;
+    display: inline-block;
+    height: 30px;
     color: #99a2aa;
 }
 
@@ -71,4 +72,5 @@ body {
 
 .button-icon {
     height: 100%;
+    vertical-align: middle;
 }
