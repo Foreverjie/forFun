@@ -65,10 +65,10 @@ body {
 .card-button {
     display: inline-block;
     width: 92px;
-    height: 100%;
     fill: #99a2aa;
+    height: 20px;
 }
 
 .button-icon {
-    height: 20px;
+    height: 100%;
 }
