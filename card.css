@@ -4,6 +4,11 @@ body {
     background: #f6f6f6;
 }
 
+
+span {
+    display: inline-block;
+}
+
 .card-container {
     display: block;
     position: relative;
@@ -29,7 +34,6 @@ body {
 .card-main-content {
     padding-top: 27px;
     margin-left: 88px;
-    width: 534px;
 }
 
 .card-title {
@@ -58,19 +62,22 @@ body {
 }
 
 .card-button-bar {
-    display: inline-block;
-    height: 30px;
+    display: flex;
     color: #99a2aa;
+    fill: #99a2aa;
+    padding: 8px 0;
 }
 
 .card-button {
-    display: inline-block;
+    display: flex;
     width: 92px;
-    fill: #99a2aa;
-    height: 20px;
 }
 
 .button-icon {
-    height: 100%;
-    vertical-align: middle;
+    width: 20px;
+}
+
+.num {
+    padding-left: 3px;
+    padding-top: 2px;
 }
