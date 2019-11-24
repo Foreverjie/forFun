@@ -1,5 +1,21 @@
 <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
 <body>
 <h1>test</h1>
+<button id="add-article" v-on:click="newArticleWindow('asd')">
+    add
+</button>
+<script>
+    let addArticle = new Vue({
+        el: '#add-article',
+        methods: {
+            newArticleWindow: function (message) {
+                alert(message)
+            }
+        }
+    })
+</script>
 </body>
 </html>
