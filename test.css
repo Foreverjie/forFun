@@ -1,0 +1,46 @@
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+input {
+    padding: 0;
+    overflow: hidden;
+    border: none;
+}
+
+.new-article {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+.new-article-bg {
+    height: 100%;
+    background: rgba(245, 245, 245, 0.5);
+}
+
+.new-article-container {
+    width: fit-content;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.article-input {
+    background: #f6f6f6;
+    padding-left: 14px;
+    padding-right: 0;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    height: 34px;
+}

@@ -1,13 +1,38 @@
 <html>
 
 <head>
-</head>
+        <link rel="stylesheet" href="test.css">
+    </head>
 
 <body>
     <h1>test</h1>
     <button id="add-article">
         add
     </button>
+    <div class="new-article">
+        <div class="new-article-bg">
+            <div class="new-article-container vertical-center">
+                <div class="title">
+                    <div>title</div>
+                    <div>
+                        <label class="article-input">
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div>content</div>
+                    <div class="content">
+                            <label class="article-input">
+                                    <input type="text">
+                            </label>
+                    </div>
+                    <div class="button-bar">
+                        <button class="new-article-submit">Publish</button>
+                        <button class="new-article-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         const log = console.log.bind(console)
 
@@ -16,13 +41,26 @@
         let addArticle = document.getElementById("add-article")
         addArticle.addEventListener("click", function() {
             let newArticle = `
-                <div class="new-article-container">
-                    <div class="title">
-                        <span>title</span>
-                        <input type="text">
-                        <button class="new-article-cancel">cancel</button>
+            <div class="new-article">
+                <div class="new-article-bg">
+                    <div class="new-article-container vertical-center">
+                        <div class="title">
+                            <div>title</div>
+                            <div>
+                                <input type="text">
+                            </div>
+                            <div>content</div>
+                            <div class="content">
+                                <input type="text">
+                            </div>
+                            <div class="button-bar">
+                                <button class="new-article-submit">Publish</button>
+                                <button class="new-article-cancel">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
             `
             body.insertAdjacentHTML('beforeend', newArticle)
         })
@@ -30,8 +68,7 @@
         body.addEventListener("click", function(event) {
             let t = event.target
             if (t.classList.contains("new-article-cancel")) {
-                let test = t.closest("new-article-container")
-                log(test)
+                t.closest(".new-article").remove()
             }
         })
     </script>
