@@ -1,21 +1,40 @@
 <html>
-    <head>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </head>
+
+<head>
+</head>
+
 <body>
-<h1>test</h1>
-<button id="add-article" v-on:click="newArticleWindow('asd')">
-    add
-</button>
-<script>
-    let addArticle = new Vue({
-        el: '#add-article',
-        methods: {
-            newArticleWindow: function (message) {
-                alert(message)
+    <h1>test</h1>
+    <button id="add-article">
+        add
+    </button>
+    <script>
+        const log = console.log.bind(console)
+
+        const body = document.querySelector("body")
+
+        let addArticle = document.getElementById("add-article")
+        addArticle.addEventListener("click", function() {
+            let newArticle = `
+                <div class="new-article-container">
+                    <div class="title">
+                        <span>title</span>
+                        <input type="text">
+                        <button class="new-article-cancel">cancel</button>
+                    </div>
+                </div>
+            `
+            body.insertAdjacentHTML('beforeend', newArticle)
+        })
+
+        body.addEventListener("click", function(event) {
+            let t = event.target
+            if (t.classList.contains("new-article-cancel")) {
+                let test = t.closest("new-article-container")
+                log(test)
             }
-        }
-    })
-</script>
+        })
+    </script>
 </body>
+
 </html>
