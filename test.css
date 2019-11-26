@@ -11,6 +11,12 @@ input {
     border: none;
 }
 
+.vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .new-article {
     top: 0;
     height: 100%;
@@ -25,15 +31,15 @@ input {
 }
 
 .new-article-container {
-    width: fit-content;
+    width: 40%;
+    height: fit-content;
+    background: white;
     margin: 0 auto;
     opacity: 1;
 }
 
-.vertical-center {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+.article-content {
+    padding: 15px 0;
 }
 
 .article-input {

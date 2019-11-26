@@ -12,23 +12,21 @@
     <div class="new-article">
         <div class="new-article-bg">
             <div class="new-article-container vertical-center">
-                <div class="title">
-                    <div>title</div>
-                    <div>
+                <div class="article-content">title</div>
+                <div class="article-content">
+                    <label class="article-input">
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="article-content">content</div>
+                <div class="article-content content">
                         <label class="article-input">
-                            <input type="text">
+                                <input type="text">
                         </label>
-                    </div>
-                    <div>content</div>
-                    <div class="content">
-                            <label class="article-input">
-                                    <input type="text">
-                            </label>
-                    </div>
-                    <div class="button-bar">
-                        <button class="new-article-submit">Publish</button>
-                        <button class="new-article-cancel">Cancel</button>
-                    </div>
+                </div>
+                <div class="article-content button-bar">
+                    <button class="new-article-submit">Publish</button>
+                    <button class="new-article-cancel">Cancel</button>
                 </div>
             </div>
         </div>
@@ -44,19 +42,21 @@
             <div class="new-article">
                 <div class="new-article-bg">
                     <div class="new-article-container vertical-center">
-                        <div class="title">
-                            <div>title</div>
-                            <div>
+                        <div class="article-content">title</div>
+                        <div class="article-content">
+                            <label class="article-input">
                                 <input type="text">
-                            </div>
-                            <div>content</div>
-                            <div class="content">
-                                <input type="text">
-                            </div>
-                            <div class="button-bar">
-                                <button class="new-article-submit">Publish</button>
-                                <button class="new-article-cancel">Cancel</button>
-                            </div>
+                            </label>
+                        </div>
+                        <div class="article-content">content</div>
+                        <div class="article-content content">
+                                <label class="article-input">
+                                        <input type="text">
+                                </label>
+                        </div>
+                        <div class="article-content button-bar">
+                            <button class="new-article-submit">Publish</button>
+                            <button class="new-article-cancel">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
 
         body.addEventListener("click", function(event) {
             let t = event.target
-            if (t.classList.contains("new-article-cancel")) {
+            if (t.classList.contains("new-article-cancel") || t.classList.contains("new-article-bg")) {
                 t.closest(".new-article").remove()
             }
         })
