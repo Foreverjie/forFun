@@ -1,0 +1,24 @@
+{
+  "name": "forfun",
+  "version": "1.0.0",
+  "description": "my New Code",
+  "main": "index.js",
+  "dependencies": {
+    "cropperjs": "^1.5.6",
+    "croppie": "^2.6.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foreverjie/forFun.git"
+  },
+  "author": "Jie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Foreverjie/forFun/issues"
+  },
+  "homepage": "https://github.com/Foreverjie/forFun#readme"
+}
