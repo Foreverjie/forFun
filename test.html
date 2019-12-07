@@ -117,9 +117,13 @@
             <img id='test-image' src="img/flash.jpg" alt="...">
         </div>
         <div >
-            <img id='result-image'
+            <img id='result-image'>
         </div>
         <button class="upload-result">Result</button>
+    </div>
+
+    <div class="result">
+
     </div>
 
     <!-- <h1>test</h1>
@@ -194,45 +198,66 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="node_modules/croppie/croppie.css" />
-    <script src="node_modules/croppie/croppie.js"></script>
-    <!-- <link  href="node_modules/cropperjs/dist/cropper.css" rel="stylesheet">
-    <script src="node_modules/cropperjs/dist/cropper.js"></script> -->
+    <!-- <link rel="stylesheet" href="node_modules/croppie/croppie.css" />
+    <script src="node_modules/croppie/croppie.js"></script> -->
+    <link  href="node_modules/cropperjs/dist/cropper.css" rel="stylesheet">
+    <script src="node_modules/cropperjs/dist/cropper.js"></script>
     
     <script>
             // import 'cropperjs/dist/cropper.css';
            // import Cropper from 'cropperjs';
         //    const Cropper = require('cropperjs')
+
+        const log = console.log.bind(console)
    
-           const image = document.getElementById('test-image');
-        //    console.log(image)
-        //     const cropper = new Cropper(image, {
-        //         aspectRatio: 16 / 9,
-        //         crop(event) {
-        //             console.log(event.detail.x);
-        //             console.log(event.detail.y);
-        //             console.log(event.detail.width);
-        //             console.log(event.detail.height);
-        //             console.log(event.detail.rotate);
-        //             console.log(event.detail.scaleX);
-        //             console.log(event.detail.scaleY);
-        //         },
-        //     });
+        const image = document.getElementById('test-image')
+        // image.setAttribute('crossorigin', 'anonymous')
+        console.log(image)
+        const cropper = new Cropper(image, {
+            checkCrossOrigin:false, // This is important
+            aspectRatio: 1 / 1,
+            crop(event) {
+                console.log(event.detail.x);
+                console.log(event.detail.y);
+                console.log(event.detail.width);
+                console.log(event.detail.height);
+                console.log(event.detail.rotate);
+                console.log(event.detail.scaleX);
+                console.log(event.detail.scaleY);
+            },
+            viewMode: 3,
+        });
+        $('.upload-result').click(function() {
+            let s = cropper.getCroppedCanvas()
+            log(s)
+            $('.result').html(s)
+            // let resultImg = new Image()
+            // let resultImg = convertCanvasToImage(s)
+            // log(resultImg)
+        })
 
-            console.log($('#test-image'))
+        // todo canvas转图片
+        // const convertCanvasToImage = function(canvas) {
+        //     var image = new Image()
+        //     image.setAttribute("crossOrigin", 'Anonymous')
+        //     image.src = canvas.toDataURL("image/png")
+        //     return image
+        // }
 
-            $uploadCrop = $('#test-image').croppie({
-                enableExif: true,
-                viewport: {
-                    width: 200,
-                    height: 200,
-                    type: 'circle'
-                },
-                boundary: {
-                    width: 300,
-                    height: 300
-                }
-            });
+            // console.log($('#test-image'))
+
+            // $uploadCrop = $('#test-image').croppie({
+            //     enableExif: true,
+            //     viewport: {
+            //         width: 200,
+            //         height: 200,
+            //         type: 'circle'
+            //     },
+            //     boundary: {
+            //         width: 300,
+            //         height: 300
+            //     }
+            // });
        </script>
 
 </body>
