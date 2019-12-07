@@ -230,19 +230,17 @@
         $('.upload-result').click(function() {
             let s = cropper.getCroppedCanvas()
             log(s)
-            $('.result').html(s)
             // let resultImg = new Image()
-            // let resultImg = convertCanvasToImage(s)
-            // log(resultImg)
+            let resultImg = convertCanvasToImage(s)
+            $('.result').html(resultImg)
         })
 
         // todo canvas转图片
-        // const convertCanvasToImage = function(canvas) {
-        //     var image = new Image()
-        //     image.setAttribute("crossOrigin", 'Anonymous')
-        //     image.src = canvas.toDataURL("image/png")
-        //     return image
-        // }
+        const convertCanvasToImage = function(canvas) {
+            var image = new Image()
+            image.src = canvas.toDataURL("image/png")
+            return image
+        }
 
             // console.log($('#test-image'))
 
