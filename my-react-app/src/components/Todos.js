@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import TodoItem from "./TodoItem"
+import { List } from 'antd'
 import PropTypes from 'prop-types'
 
 class Todos extends Component {
 
   render() {
     // console.log(this.props.todos)
-    return this.props.todos.map((todo) => {
-      return <TodoItem key={todo.id} todo={todo} />
-    })
+    return <List
+            bordered
+            dataSource={this.props.todos}
+            renderItem={todo => (
+              <List.Item>
+                {todo.title}
+              </List.Item>
+            )}
+          />
   }
 }
 
