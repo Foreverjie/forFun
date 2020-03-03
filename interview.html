@@ -1,0 +1,65 @@
+<html>
+<style>
+  #id-button-hover {
+    display: inline-block;
+    border: 1px solid red;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+  }
+
+  /* #id-toggle {
+    display: inline-block;
+    border: 1px solid red;
+    width: 50px;
+    height: 80px;
+    margin: auto;
+  } */
+
+  #id-button-hover::after {
+    display: inline-block;
+    border: 1px solid red;
+    width: 50px;
+    height: 80px;
+    margin: auto;
+    content: "";
+  }
+
+  #id-button-hover2 {
+    display: inline-block;
+    border: 1px solid red;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+  }
+
+  #id-button-hover2::after {
+    display: inline-block;
+    border: 1px solid red;
+    width: 50px;
+    height: 80px;
+    content: "";
+    margin: auto;
+  }
+</style>
+
+<body>
+  <div id="id-button-hover">
+    <!-- <div id="id-toggle"></div> -->
+  </div>
+  <span id="id-button-hover2"></span>
+</body>
+
+<script>
+  const log = console.log.bind(console)
+  log('log')
+
+  let button = document.getElementById("id-button-hover")
+  button.addEventListener("mouseover", function (event) {
+    let t = event.target
+    // 更改元素class实现伪元素的样式更改
+    // while()
+  })
+</script>
+
+</html>
