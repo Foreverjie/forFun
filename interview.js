@@ -58,40 +58,41 @@
 
 
 
+// 还有一个var相关的问题
 
 
-// // async function async1() {
-// //     console.log('async1 start');
-// //     await async2();
-// //     console.log('async1 end');
-// // }
+// async function async1() {
+//     console.log('async1 start');
+//     await async2();
+//     console.log('async1 end');
+// }
 
-// // async function async2() {
-// //     console.log('async2 start');
-// //     return new Promise((resolve, reject) => {
-// //         resolve();
-// //         console.log('async2 promise');
-// //     })
-// // }
+// async function async2() {
+//     console.log('async2 start');
+//     return new Promise((resolve, reject) => {
+//         resolve();
+//         console.log('async2 promise');
+//     })
+// }
 
-// // console.log('script start');
+// console.log('script start');
 
-// // setTimeout(function () {
-// //     console.log('setTimeout');
-// // }, 0);
+// setTimeout(function () {
+//     console.log('setTimeout');
+// }, 0);
 
-// // async1();
+// async1();
 
-// // new Promise(function (resolve) {
-// //     console.log('promise1');
-// //     resolve();
-// // }).then(function () {
-// //     console.log('promise2');
-// // }).then(function () {
-// //     console.log('promise3');
-// // });
+// new Promise(function (resolve) {
+//     console.log('promise1');
+//     resolve();
+// }).then(function () {
+//     console.log('promise2');
+// }).then(function () {
+//     console.log('promise3');
+// });
 
-// // console.log('script end');
+// console.log('script end');
 
 // const a = (function () {
 //     let num = 2
@@ -105,7 +106,7 @@
 //     }
 // })()
 
-// const log = console.log.bind(console)
+const log = console.log.bind(console)
 
 // log(a())
 // log(a())
@@ -149,6 +150,20 @@
 // 800ms时，3完成，输出3，任务4进队
 // 1000ms时，1完成，输出1
 // 1200ms时，4完成，输出4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const numOfString = function(str) {
 //     count = {}
@@ -208,25 +223,25 @@
 // log(isValid('{{{()}}}[]'))
 
 
-const arrayDepth = function (arr) {
-    let depth = 1
-    let max = 0
-    for (let a of arr) {
-        if (a instanceof Array) {
-            d = arrayDepth(a)
-            if (d > max) {
-                depth += d
-                max = d
-            }
-        }
-    }
-    return depth
-}
+// const arrayDepth = function (arr) {
+//     let depth = 1
+//     let max = 0
+//     for (let a of arr) {
+//         if (a instanceof Array) {
+//             d = arrayDepth(a)
+//             if (d > max) {
+//                 depth += d
+//                 max = d
+//             }
+//         }
+//     }
+//     return depth
+// }
 
-const log = console.log.bind(console)
+// const log = console.log.bind(console)
 
-let arr = []
-log(arrayDepth(arr))
+// let arr = []
+// log(arrayDepth(arr))
 
 // for (let a of arr) {
 //     log(a)
@@ -237,3 +252,25 @@ log(arrayDepth(arr))
 //         log(typeof(a))
 //     }
 // }
+
+const tickQueue = function () {
+    let num = 0
+    let start = Date.now()
+
+    setInterval(function () {
+        num++
+        let now = Date.now()
+        log('timer1', num, now - start)
+        if (num == 10) {
+            throw Error('timeout')
+        }
+    }, 1024)
+
+    setTimeout(function () {
+        num++
+        let now = Date.now()
+        log('timer2', num, now - start)
+    }, 0)
+}
+
+// tickQueue()
