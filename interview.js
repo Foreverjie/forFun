@@ -115,30 +115,47 @@ const log = console.log.bind(console)
 // log(a())
 
 
-// class Scheduler {
-//     constructor() {
-//         this.task = []
-//     }
-//     add(promiseCreator) {
-//         const promise = new Promise(function (resolve, reject) {
-//             promiseCreator.resolve()
-//             resolve()
-//         })
-//         if (this.task.length < 2) {
-//             this.task.add(promise)
-//         }
-//         return this.task[0]
-//     }
-//     // TODO
-// }
-// const timeout = (time) => new Promise(resolve => {
-//     setTimeout(resolve, time)
-// })
-// const scheduler = new Scheduler();
-// const addTask = (time, order) => {
-//     scheduler.add(() => timeout(time))
-//         .then(() => console.log(order))
-// }
+class Scheduler {
+    constructor() {
+        this.task = []
+        this.usingTask = [] // 正在运行的任务
+    }
+
+    add(promiseCreator) {
+        return new Promise((resolve, reject) => {
+            promiseCreator.resolve = resolve
+            if (this.usingTask.length < 2) {
+                this.usingRun(promiseCreator)
+            } else {
+                this.task.push(promiseCreator)
+            }
+        })
+    }
+
+    usingRun(promiseCreator) {
+        this.usingTask.push(promiseCreator)
+        promiseCreator().then(() => {
+            promiseCreator.resolve()
+            this.usingMove(promiseCreator)
+            if (this.task.length > 0) {
+                this.usingRun(this.task.shift())
+            }
+        })
+    }
+
+    usingMove(promiseCreator) {
+        let index = this.usingTask.findIndex(promiseCreator)
+        this.usingTask.splice(index, 1)
+    }
+}
+const timeout = (time) => new Promise(resolve => {
+    setTimeout(resolve, time)
+})
+const scheduler = new Scheduler();
+const addTask = (time, order) => {
+    scheduler.add(() => timeout(time))
+        .then(() => console.log(order))
+}
 
 // addTask(1000, '1')
 // addTask(500, '2')
@@ -150,6 +167,52 @@ const log = console.log.bind(console)
 // 800ms时，3完成，输出3，任务4进队
 // 1000ms时，1完成，输出1
 // 1200ms时，4完成，输出4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let a = []
+
+// for (var i = 0; i < 3; i++) {
+//     var f = (function (i) {
+//         log(i)
+//     })()
+//     a.push(f)
+// }
+
+// log(a)
+// a[0]()
+// a[1]()
+// a[2]()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
